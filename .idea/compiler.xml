@@ -6,12 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="shop-order" />
         <module name="api-gateway" />
         <module name="shop-user" />
         <module name="shop-product" />
+        <module name="shop-rocketmq" />
         <module name="shop-common" />
         <module name="shop-sms" />
-        <module name="shop-order" />
       </profile>
     </annotationProcessing>
   </component>
@@ -21,6 +22,7 @@
       <module name="shop-common" options="-parameters" />
       <module name="shop-order" options="-parameters" />
       <module name="shop-product" options="-parameters" />
+      <module name="shop-rocketmq" options="-parameters" />
       <module name="shop-sms" options="-parameters" />
       <module name="shop-user" options="-parameters" />
     </option>
