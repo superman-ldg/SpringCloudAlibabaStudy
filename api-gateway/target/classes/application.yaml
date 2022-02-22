@@ -1,0 +1,24 @@
+server:
+  port: 7000
+
+spring:
+  application:
+    name: api-gateway
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+    gateway:
+      discovery:  #从注册中心发现服务
+        locator:
+          enable: true
+      routes:  #路由数组[指定请求满足什么条件的时候跳转到那个微服务]
+        - id: product_route  #当前路由标识
+          uri: lb://service-product  #请求要转发的地址(从注册中心发现服务的拼接方式)
+          #order: 1 #路由的优先级，数字越小优先级越高
+          predicates: #断言(路由转发的条件)
+            - Path=/product-serv/** #当前请求路径满足path指定的规则，才进行转发
+          filters: #过滤器，请求在传递过程中可以提供过滤器对其进行一定的修改
+            - StripPrefix=1 #转发之前去掉1层路径(Path的一层，之后拼接到uri后面)

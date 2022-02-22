@@ -1,0 +1,47 @@
+server:
+  port: 8091
+  tomcat:
+    max-threads: 10
+spring:
+  application:
+    name: service-order
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://47.106.132.130:3306/springcloud?serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+    sentinel:
+      eager: true
+      enabled: true
+      transport:
+        dashboard: localhost:8080
+        port: 8719
+
+#rocketmq:
+#  name-server: 47.106.132.130:9876
+#  group: shop-order #生成者组
+
+rocketmq:
+  nameServer: 47.106.132.130:9876
+  producer:
+    group: shop-order
+
+  zipkin:
+    base-url: http://47.106.132.130:9411/zipkin/  #zipkin的服务器
+    discoveryClientEnabled: false #不当做微服务
+    sleuth:
+      sampler:
+        probability: 1.0 #采样百分比
+
+#ribbon:
+fegin:
+  sentinel:
+    enable: true  #fegin整合sentinel，要创建容错类并实现容错接口，并为每个方法提供容错方案
+

@@ -1,0 +1,31 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: service-product
+  datasource:
+    url: jdbc:mysql://47.106.132.130:3306/springcloud?serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    sentinel:
+      eager: true
+      enabled: true
+      transport:
+        dashboard: localhost:8080
+        port: 8719
+
+  zipkin:
+    base-url: http://47.106.132.130:9411/zipkin/  #zipkin的服务器
+    discoveryClientEnabled: false #不当做微服务
+    sleuth:
+      sampler:
+        probability: 1.0 #采样百分比
+

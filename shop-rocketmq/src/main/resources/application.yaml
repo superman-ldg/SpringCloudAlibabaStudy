@@ -1,0 +1,9 @@
+server:
+  port: 10000
+
+
+
+rocketmq:
+  nameServer: 47.106.132.130:9876
+  producer:
+    group: shop-order
