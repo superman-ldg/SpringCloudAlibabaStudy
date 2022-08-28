@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="shop-order" />
+        <module name="kafka" />
         <module name="api-gateway" />
         <module name="shop-user" />
         <module name="shop-product" />
@@ -19,6 +20,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="api-gateway" options="-parameters" />
+      <module name="kafka" options="-parameters" />
       <module name="shop-common" options="-parameters" />
       <module name="shop-order" options="-parameters" />
       <module name="shop-product" options="-parameters" />

@@ -16,6 +16,7 @@
         <module>api-gateway</module>
         <module>shop-sms</module>
         <module>shop-rocketmq</module>
+        <module>kafka</module>
     </modules>
 
     <parent>
